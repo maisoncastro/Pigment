@@ -29,6 +29,19 @@ export default function Home() {
     }
   };
 
+  const copyToClipboard = async (hexColor: string) => {
+    try {
+      await navigator.clipboard.writeText(hexColor);
+      console.log("Copied color:", hexColor);
+    } catch (err) {
+      console.error("Failed to copy color:", err);
+    }
+  };
+
+  const handleColorPick = (color: any) => {
+    copyToClipboard(color.hex);
+  };
+
   return (
     <>
       <Head>
@@ -81,6 +94,7 @@ export default function Home() {
                 circleSize={32}
                 circleSpacing={12}
                 width="auto"
+                onChangeComplete={handleColorPick}
               />
             )}
           </div>
