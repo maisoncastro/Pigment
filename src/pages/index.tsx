@@ -53,27 +53,38 @@ export default function Home() {
           >
             Upload Image
           </button>
-        </div>
-        <div className="picture-div">
-          {previewImg && (
-            <NextImage
-              src={previewImg}
-              alt="Preview"
-              layout="fill"
-              objectFit="contain"
-            />
-          )}
-        </div>
-      </div>
-      <div className="container-palettes">
-        {palette.length > 0 && (
-          <CirclePicker
-            colors={palette}
-            circleSize={32}
-            circleSpacing={12}
-            width="auto"
+          <input
+            type="file"
+            id="upload-image"
+            accept="image/*"
+            onChange={handleImageUpload}
+            style={{ display: "none" }}
           />
-        )}
+        </div>
+        <div className="container-image">
+          <div className="picture-div">
+            {previewImg && (
+              <NextImage
+                src={previewImg}
+                alt="Preview"
+                layout="responsive"
+                width={500}
+                height={500}
+                objectFit="contain"
+              />
+            )}
+          </div>
+          <div className="container-palettes">
+            {palette.length > 0 && (
+              <CirclePicker
+                colors={palette}
+                circleSize={32}
+                circleSpacing={12}
+                width="auto"
+              />
+            )}
+          </div>
+        </div>
       </div>
     </>
   );
