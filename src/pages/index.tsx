@@ -39,27 +39,19 @@ export default function Home() {
       </Head>
       <Navbar />
       <div className="container-header">
-        <div>
-          <span>Extract shades from your photos</span>
-          <div>
+        <div className="hero-desc">
+          <span className="header-1">Extract shades from your photos</span>
+          <div className="header-2">
             Crave a color combo that syncs with your top pics?
             BlendedShades&apos; color scheme creator nails it in moments. Just
             add an image, and we&apos;ll craft your palette from its tones.
           </div>
-          <input
-            type="file"
-            accept="image/*"
-            onChange={handleImageUpload}
-            style={{ display: "none" }}
-            id="upload-image"
-          />
-          <label htmlFor="upload-image">
-            <button>Upload Image</button>
-          </label>
+
           <button
+            className="btn-upload"
             onClick={() => document.getElementById("upload-image")?.click()}
           >
-            Test Upload Image
+            Upload Image
           </button>
         </div>
         <div className="picture-div">

@@ -11,3 +11,59 @@ body {
   background-color: #f4f4f1;
   font-family: Inter, sans-serif;
 }
+
+/* Typography */
+
+.header-1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.05em;
+}
+
+/* Buttons */
+
+.btn-upload {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: rgba(204, 204, 204, 0.5);
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.64);
+  border-radius: 7px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-upload:hover {
+  background: #b5b6a0;
+  color: #fff;
+}
+
+/* Layout */
+
+.container-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 3rem;
+  width: 100%;
+}
+
+.hero-desc {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1rem 3rem;
+  row-gap: 2em;
+  width: 50%;
+}
+
+.picture-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
