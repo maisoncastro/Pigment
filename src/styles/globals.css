@@ -57,7 +57,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 1rem 3rem;
+  padding: 1rem 2rem;
   row-gap: 2em;
   width: 50%;
 }
@@ -67,12 +67,18 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  padding-right: 2rem;
+  padding-top: 1rem;
 }
 
 .picture-div {
-  width: 500px;
-  height: 500px;
+  width: 600px;
+  height: 400px;
   position: relative;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  overflow: hidden;
 }
 
 .square-picker {
@@ -81,7 +87,7 @@ body {
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
-  width: 500px;
+  width: 600px;
 
   cursor: pointer;
 }
@@ -93,5 +99,28 @@ body {
   transform: translate(-50%, -50%);
   font-size: 14px;
   color: #fff;
-  font-weight: bold;
+  opacity: 0;
 }
+
+.copied-message.animate {
+  animation: fadeInOut 1.5s forwards;
+}
+
+/* Animation */
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Media Queries */

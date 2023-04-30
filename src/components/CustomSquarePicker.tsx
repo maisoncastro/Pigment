@@ -33,13 +33,22 @@ class MyColorPicker extends React.Component<MyColorPickerProps> {
             }}
             style={{
               backgroundColor: color,
-              height: Math.floor(500 / 5),
-              width: Math.floor(500 / 5),
+              height: Math.floor(400 / 5),
+              width: Math.floor(600 / 5),
               display: "inline-block",
+              position: "relative",
+              borderBottomLeftRadius: index === 0 ? "15px" : "0px",
+              borderBottomRightRadius: index === 4 ? "15px" : "0px",
             }}
           >
             {this.state.copiedIndex === index && (
-              <span className="copied-message">Copied!</span>
+              <span
+                className={`copied-message${
+                  this.state.copiedIndex === index ? " animate" : ""
+                }`}
+              >
+                Copied!
+              </span>
             )}
           </div>
         ))}
