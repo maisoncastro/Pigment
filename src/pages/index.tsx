@@ -2,9 +2,10 @@ import { useState, ChangeEvent } from "react";
 import Head from "next/head";
 import NextImage from "next/image";
 import { Inter } from "next/font/google";
-import Navbar from "@/components/Navbar";
 import ColorThief from "colorthief";
-import { CirclePicker } from "react-color";
+
+import Navbar from "@/components/Navbar";
+import MyColorPicker from "@/components/CustomSquarePicker";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -80,22 +81,18 @@ export default function Home() {
               <NextImage
                 src={previewImg}
                 alt="Preview"
-                layout="responsive"
                 width={500}
                 height={500}
-                objectFit="contain"
               />
             )}
           </div>
           <div className="container-palettes">
             {palette.length > 0 && (
-              <CirclePicker
-                colors={palette}
-                circleSize={32}
-                circleSpacing={12}
-                width="auto"
-                onChangeComplete={handleColorPick}
-              />
+              <div className="square-picker">
+                {palette.length > 0 && (
+                  <MyColorPicker colors={palette} onChange={handleColorPick} />
+                )}
+              </div>
             )}
           </div>
         </div>

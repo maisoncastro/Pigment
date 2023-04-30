@@ -73,3 +73,10 @@ body {
   width: 500px;
   height: 500px;
 }
+
+.square-picker {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
