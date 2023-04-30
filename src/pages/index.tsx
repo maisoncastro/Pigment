@@ -90,7 +90,10 @@ export default function Home() {
             {palette.length > 0 && (
               <div className="square-picker">
                 {palette.length > 0 && (
-                  <MyColorPicker colors={palette} onChange={handleColorPick} />
+                  <MyColorPicker
+                    colors={palette}
+                    onCustomChange={handleColorPick}
+                  />
                 )}
               </div>
             )}

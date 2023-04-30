@@ -1,35 +1,26 @@
 import React from "react";
-import {
-  CustomPicker,
-  InjectedColorProps,
-  Color,
-  ColorResult,
-  ColorWrapChangeHandler,
-} from "react-color";
+import { CustomPicker, InjectedColorProps, ColorResult } from "react-color";
 
 interface MyColorPickerProps extends InjectedColorProps {
   colors: string[];
-  onChange: ColorWrapChangeHandler;
+  onCustomChange: (color: ColorResult) => void;
 }
 
 class MyColorPicker extends React.Component<MyColorPickerProps> {
   render() {
-    const { colors, onChange } = this.props;
+    const { colors, onChange, onCustomChange } = this.props;
 
     return (
       <div className="square-picker">
         {colors.map((color, index) => (
           <div
             key={index}
-            onClick={(e) =>
-              onChange(
-                {
-                  hex: color,
-                  rgb: { r: 0, g: 0, b: 0 },
-                  hsl: { h: 0, s: 0, l: 0 },
-                },
-                e
-              )
+            onClick={() =>
+              onCustomChange({
+                hex: color,
+                hsl: { h: 0, s: 0, l: 0, a: 1 },
+                rgb: { r: 0, g: 0, b: 0, a: 1 },
+              })
             }
             style={{
               backgroundColor: color,
