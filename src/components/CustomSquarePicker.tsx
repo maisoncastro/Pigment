@@ -24,10 +24,9 @@ class MyColorPicker extends React.Component<MyColorPickerProps> {
             }
             style={{
               backgroundColor: color,
-              height: 32,
-              width: 32,
+              height: Math.floor(500 / 5),
+              width: Math.floor(500 / 5),
               display: "inline-block",
-              marginRight: index < colors.length - 1 ? 12 : 0,
             }}
           />
         ))}

@@ -88,14 +88,10 @@ export default function Home() {
           </div>
           <div className="container-palettes">
             {palette.length > 0 && (
-              <div className="square-picker">
-                {palette.length > 0 && (
-                  <MyColorPicker
-                    colors={palette}
-                    onCustomChange={handleColorPick}
-                  />
-                )}
-              </div>
+              <MyColorPicker
+                colors={palette}
+                onCustomChange={handleColorPick}
+              />
             )}
           </div>
         </div>
