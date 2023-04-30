@@ -7,6 +7,10 @@ interface MyColorPickerProps extends InjectedColorProps {
 }
 
 class MyColorPicker extends React.Component<MyColorPickerProps> {
+  state = {
+    copiedIndex: -1,
+  };
+
   render() {
     const { colors, onChange, onCustomChange } = this.props;
 
@@ -15,20 +19,29 @@ class MyColorPicker extends React.Component<MyColorPickerProps> {
         {colors.map((color, index) => (
           <div
             key={index}
-            onClick={() =>
+            onClick={() => {
               onCustomChange({
                 hex: color,
                 hsl: { h: 0, s: 0, l: 0, a: 1 },
                 rgb: { r: 0, g: 0, b: 0, a: 1 },
-              })
-            }
+              });
+              this.setState({ copiedIndex: index }, () => {
+                setTimeout(() => {
+                  this.setState({ copiedIndex: -1 });
+                }, 1500);
+              });
+            }}
             style={{
               backgroundColor: color,
               height: Math.floor(500 / 5),
               width: Math.floor(500 / 5),
               display: "inline-block",
             }}
-          />
+          >
+            {this.state.copiedIndex === index && (
+              <span className="copied-message">Copied!</span>
+            )}
+          </div>
         ))}
       </div>
     );

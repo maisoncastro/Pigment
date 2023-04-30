@@ -81,8 +81,8 @@ export default function Home() {
               <NextImage
                 src={previewImg}
                 alt="Preview"
-                width={500}
-                height={500}
+                layout="fill"
+                objectFit="cover"
               />
             )}
           </div>

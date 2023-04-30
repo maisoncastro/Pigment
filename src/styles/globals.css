@@ -72,6 +72,7 @@ body {
 .picture-div {
   width: 500px;
   height: 500px;
+  position: relative;
 }
 
 .square-picker {
@@ -81,4 +82,16 @@ body {
   justify-content: center;
   align-items: center;
   width: 500px;
+
+  cursor: pointer;
+}
+
+.copied-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 14px;
+  color: #fff;
+  font-weight: bold;
 }
