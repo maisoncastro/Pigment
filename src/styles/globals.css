@@ -1,3 +1,8 @@
+:root {
+  --black: #454545;
+  --grey: #8b8b8b;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -19,6 +24,16 @@ body {
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: -0.05em;
+  color: var(--black);
+}
+
+.header-2 {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.05em;
+  color: var(--grey);
+  margin-bottom: 1rem;
 }
 
 /* Buttons */
@@ -35,6 +50,8 @@ body {
   border: none;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
+  font-weight: 500;
+  font-family: Inter, sans-serif;
 }
 
 .btn-upload:hover {
@@ -58,8 +75,8 @@ body {
   justify-content: space-between;
   align-items: flex-start;
   padding: 1rem 2rem;
-  row-gap: 2em;
-  width: 50%;
+  row-gap: 3em;
+  width: 40%;
 }
 
 .container-image {
