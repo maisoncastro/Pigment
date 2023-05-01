@@ -14,6 +14,15 @@ export default function Home() {
     Array<{ url: string; palette: string[] }>
   >([]);
 
+  const handleImageUpload = (newImageCard: any) => {
+    console.log("New image card:", newImageCard); // Add this line
+    setImageCards((prevImageCards) => {
+      const updatedImageCards = [...prevImageCards, newImageCard];
+      console.log("Updated image cards:", updatedImageCards);
+      return updatedImageCards;
+    });
+  };
+
   return (
     <>
       <Head>
@@ -23,10 +32,8 @@ export default function Home() {
         <link rel="icon" href="/blendedshades-logo.svg" />
       </Head>
       <Navbar />
-      <Header
-        onImageUpload={(imageCard) => setImageCards([...imageCards, imageCard])}
-      />
-      <CardsSection imageCards={imageCards} />
+      <Header onImageUpload={handleImageUpload} />
+      <CardsSection key={imageCards.length} imageCards={imageCards} />
     </>
   );
 }

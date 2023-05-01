@@ -18,6 +18,7 @@ export default function Header({ onImageUpload }: HeaderProps) {
   const [previewImg, setPreviewImg] = useState<string | null>("/fox.png");
 
   const handleImageUpload = async (event: ChangeEvent<HTMLInputElement>) => {
+    // console.log("Header handleImageUpload called");
     const file = event.target.files?.[0];
     if (file) {
       const previewUrl = URL.createObjectURL(file);
@@ -42,6 +43,8 @@ export default function Header({ onImageUpload }: HeaderProps) {
     }
   };
 
+  // console.log("Updated imageCards:", imageCards);
+
   const copyToClipboard = async (hexColor: string) => {
     try {
       await navigator.clipboard.writeText(hexColor);
@@ -61,7 +64,7 @@ export default function Header({ onImageUpload }: HeaderProps) {
       const img = new Image();
       img.src = "/fox.png";
       img.onload = () => {
-        const colorPalette = colorThief.getPalette(img, 5); // Adjust the second parameter to get the desired number of colors
+        const colorPalette = colorThief.getPalette(img, 5);
         setPalette(colorPalette.map((color) => `rgb(${color.join(",")})`));
       };
     };
@@ -80,7 +83,9 @@ export default function Header({ onImageUpload }: HeaderProps) {
 
       <div className="container-header">
         <div className="hero-desc">
-          <span className="header-1">Extract shades from your photos</span>
+          <span className="header-1">
+            Extract the best colors from your photos
+          </span>
           <div className="header-2">
             Crave a color combo that syncs with your top pics?
             BlendedShades&apos; color scheme creator nails it in moments. Just
