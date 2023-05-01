@@ -12,7 +12,21 @@ class MyColorPicker extends React.Component<MyColorPickerProps> {
   };
 
   render() {
-    const { colors, onChange, onCustomChange } = this.props;
+    const { colors, onCustomChange } = this.props;
+
+    function rgbStringToHex(rgbString: string) {
+      const rgbValues = rgbString
+        .replace(/^rgb\(|\s|\)$/g, "")
+        .split(",")
+        .map(Number);
+
+      let hex = "#";
+      for (const value of rgbValues) {
+        hex += value.toString(16).padStart(2, "0").toUpperCase();
+      }
+
+      return hex;
+    }
 
     return (
       <div className="square-picker">
@@ -20,8 +34,9 @@ class MyColorPicker extends React.Component<MyColorPickerProps> {
           <div
             key={index}
             onClick={() => {
+              const hexColor = rgbStringToHex(color);
               onCustomChange({
-                hex: color,
+                hex: hexColor,
                 hsl: { h: 0, s: 0, l: 0, a: 1 },
                 rgb: { r: 0, g: 0, b: 0, a: 1 },
               });
