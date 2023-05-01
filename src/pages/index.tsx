@@ -1,61 +1,18 @@
+import React from "react";
 import { useState, useEffect, ChangeEvent } from "react";
 import Head from "next/head";
-import NextImage from "next/image";
-import { Inter } from "next/font/google";
 import ColorThief from "colorthief";
 
-import Navbar from "@/components/Navbar";
-import MyColorPicker from "@/components/CustomSquarePicker";
+// Components
 
-// import foxImage from "public/fox.png";
+import Navbar from "@/components/Navbar";
+import Header from "@/components/Header";
+import CardsSection from "@/components/CardsSection";
 
 export default function Home() {
-  const [palette, setPalette] = useState<string[]>([]);
-
-  const [previewImg, setPreviewImg] = useState<string | null>("/fox.png");
-
-  const handleImageUpload = async (event: ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (file) {
-      const previewUrl = URL.createObjectURL(file);
-      setPreviewImg(previewUrl);
-
-      const colorThief = new ColorThief();
-      const img = new Image();
-      img.src = previewUrl;
-      img.onload = () => {
-        const colorPalette = colorThief.getPalette(img, 5); // Adjust the second parameter to get the desired number of colors
-        setPalette(colorPalette.map((color) => `rgb(${color.join(",")})`));
-      };
-    }
-  };
-
-  const copyToClipboard = async (hexColor: string) => {
-    try {
-      await navigator.clipboard.writeText(hexColor);
-      console.log("Copied color:", hexColor);
-    } catch (err) {
-      console.error("Failed to copy color:", err);
-    }
-  };
-
-  const handleColorPick = (color: any) => {
-    copyToClipboard(color.hex);
-  };
-
-  useEffect(() => {
-    const generateInitialPalette = async () => {
-      const colorThief = new ColorThief();
-      const img = new Image();
-      img.src = "/fox.png";
-      img.onload = () => {
-        const colorPalette = colorThief.getPalette(img, 5); // Adjust the second parameter to get the desired number of colors
-        setPalette(colorPalette.map((color) => `rgb(${color.join(",")})`));
-      };
-    };
-
-    generateInitialPalette();
-  }, []);
+  const [imageCards, setImageCards] = React.useState<
+    Array<{ url: string; palette: string[] }>
+  >([]);
 
   return (
     <>
@@ -66,45 +23,10 @@ export default function Home() {
         <link rel="icon" href="/blendedshades-logo.svg" />
       </Head>
       <Navbar />
-      <div className="container-header">
-        <div className="hero-desc">
-          <span className="header-1">Extract shades from your photos</span>
-          <div className="header-2">
-            Crave a color combo that syncs with your top pics?
-            BlendedShades&apos; color scheme creator nails it in moments. Just
-            add an image, and we&apos;ll craft your palette from its tones.
-          </div>
-
-          <button
-            className="btn-upload"
-            onClick={() => document.getElementById("upload-image")?.click()}
-          >
-            Upload Image
-          </button>
-          <input
-            type="file"
-            id="upload-image"
-            accept="image/*"
-            onChange={handleImageUpload}
-            style={{ display: "none" }}
-          />
-        </div>
-        <div className="container-image">
-          <div className="picture-div">
-            {previewImg && (
-              <NextImage
-                src={previewImg}
-                alt="Preview"
-                layout="fill"
-                objectFit="cover"
-              />
-            )}
-          </div>
-          {palette.length > 0 && (
-            <MyColorPicker colors={palette} onCustomChange={handleColorPick} />
-          )}
-        </div>
-      </div>
+      <Header
+        onImageUpload={(imageCard) => setImageCards([...imageCards, imageCard])}
+      />
+      <CardsSection imageCards={imageCards} />
     </>
   );
 }
