@@ -1,4 +1,4 @@
-import { useState, ChangeEvent } from "react";
+import { useState, useEffect, ChangeEvent } from "react";
 import Head from "next/head";
 import NextImage from "next/image";
 import { Inter } from "next/font/google";
@@ -7,12 +7,12 @@ import ColorThief from "colorthief";
 import Navbar from "@/components/Navbar";
 import MyColorPicker from "@/components/CustomSquarePicker";
 
-const inter = Inter({ subsets: ["latin"] });
+// import foxImage from "public/fox.png";
 
 export default function Home() {
   const [palette, setPalette] = useState<string[]>([]);
 
-  const [previewImg, setPreviewImg] = useState<string | null>(null);
+  const [previewImg, setPreviewImg] = useState<string | null>("/fox.png");
 
   const handleImageUpload = async (event: ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -42,6 +42,20 @@ export default function Home() {
   const handleColorPick = (color: any) => {
     copyToClipboard(color.hex);
   };
+
+  useEffect(() => {
+    const generateInitialPalette = async () => {
+      const colorThief = new ColorThief();
+      const img = new Image();
+      img.src = "/fox.png";
+      img.onload = () => {
+        const colorPalette = colorThief.getPalette(img, 5); // Adjust the second parameter to get the desired number of colors
+        setPalette(colorPalette.map((color) => `rgb(${color.join(",")})`));
+      };
+    };
+
+    generateInitialPalette();
+  }, []);
 
   return (
     <>
@@ -86,14 +100,9 @@ export default function Home() {
               />
             )}
           </div>
-          <div className="container-palettes">
-            {palette.length > 0 && (
-              <MyColorPicker
-                colors={palette}
-                onCustomChange={handleColorPick}
-              />
-            )}
-          </div>
+          {palette.length > 0 && (
+            <MyColorPicker colors={palette} onCustomChange={handleColorPick} />
+          )}
         </div>
       </div>
     </>

@@ -47,7 +47,7 @@ class MyColorPicker extends React.Component<MyColorPickerProps> {
                   this.state.copiedIndex === index ? " animate" : ""
                 }`}
               >
-                Copied!
+                Copied
               </span>
             )}
           </div>
