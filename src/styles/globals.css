@@ -61,6 +61,15 @@ body {
 
 /* Layout */
 
+.navbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 3rem 3rem;
+  width: 100%;
+  cursor: pointer;
+}
+
 .container-header {
   display: flex;
   justify-content: space-between;
@@ -74,7 +83,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 1rem 2rem;
+  padding-left: 0.8rem;
   row-gap: 3em;
   width: 40%;
 }

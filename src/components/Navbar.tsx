@@ -1,14 +1,20 @@
 import React from "react";
 import Link from "next/link";
+import NextImage from "next/image";
+
+import blendedshadesLogo from "public/blendedshades.svg";
 
 const Navbar = () => {
   return (
     <nav className="navbar">
-      <h1>BLENDEDSHADES</h1>
-      <div className="links">
-        <Link href="/">Home</Link>
-        <Link href="/create">New Blog</Link>
-      </div>
+      <Link href="/">
+        <NextImage
+          src={blendedshadesLogo}
+          alt="Preview"
+          width={460}
+          height={35}
+        />
+      </Link>
     </nav>
   );
 };
