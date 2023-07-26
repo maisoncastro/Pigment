@@ -16,7 +16,7 @@ export default function CardsSection({ imageCards }: CardsSectionProps) {
           <div>
             <div className="card">
               <div className="card-image">
-                <img src="/fox.png" alt="Fox" />
+                {/* <img src="/fox.png" alt="Fox" /> */}
               </div>
             </div>
           </div>
