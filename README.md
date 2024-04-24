@@ -1,39 +1,25 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Image Color Extractor
 
-## Getting Started
+A simple yet powerful tool that allows users to upload images and automatically extract the predominant colors. This project utilizes image processing techniques to analyze uploaded images and identify the most significant colors present, presenting them in an intuitive format. Ideal for designers, artists, and developers needing to quickly and accurately derive color schemes from images.
 
-First, run the development server:
+## Live Demo
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+Check out the live demo of the tool here: [Blended Shades](https://blendedshades.vercel.app)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+- **Upload Image**: Users can easily upload images to the tool.
+- **Color Extraction**: Automatically extracts and displays the main colors from the uploaded image.
+- **Intuitive Display**: Colors are presented in a user-friendly format, making it easy to understand and use the extracted color information.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Usage
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+To use this tool, simply upload an image using the provided interface on the [Blended Shades website](https://blendedshades.vercel.app). The tool will process the image and display the predominant colors, which you can then use for various purposes such as graphic design, website development, or art projects.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Contributing
 
-## Learn More
+Contributions are welcome! Please feel free to submit pull requests, suggest features, or report issues.
 
-To learn more about Next.js, take a look at the following resources:
+## License
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-# Pigment
+This project is open source and available under the [MIT License](LICENSE).
